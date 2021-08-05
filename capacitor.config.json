@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "indraStore",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
