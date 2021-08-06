@@ -2,7 +2,11 @@
   <ion-header class="ion-no-border">
     <ion-toolbar color="primary">
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="/tabs/products"></ion-back-button>
+        <ion-back-button
+          mode="md"
+          icon="chevron-back"
+          defaultHref="/tabs/products"
+        ></ion-back-button>
       </ion-buttons>
       <ion-buttons slot="end">
         <ion-button (click)="toggleFavorite()">
@@ -31,7 +35,7 @@
       <p>{{product?.description}}</p>
 
       <ion-text color="secondary">
-        <p>{{product?.price | currency}}</p>
+        <p>{{product?.price | currency: "COP"}}</p>
       </ion-text>
 
       <ion-item lines="full">
@@ -61,7 +65,7 @@
         <ion-input
           type="text"
           readonly
-          [value]="product?.total | currency"
+          [value]="product?.total | currency: 'COP'"
           placeholder="total compra $$"
         ></ion-input>
       </ion-item>

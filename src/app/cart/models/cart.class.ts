@@ -16,6 +16,18 @@ export class CartOrder {
       total += e.total;
     });
 
+    this.total;
+
     return total;
+  }
+
+  recalculateTotal(products: ProductCart[]) {
+    let total = 0;
+
+    this.products.forEach((e) => {
+      total += e.total;
+    });
+
+    this.total = total;
   }
 }

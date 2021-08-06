@@ -2,9 +2,26 @@
   <ion-toolbar color="primary">
     <ion-title>Listado de Productos</ion-title>
   </ion-toolbar>
+  <ion-toolbar class="ion-padding">
+    <ion-searchbar
+      mode="ios"
+      placeholder="Que quieres comer?"
+      inputmode="decimal"
+      animated
+      type="decimal"
+      [(ngModel)]="filterProduct"
+      (ngModelChange)="onSearchChange()"
+      [debounce]="250"
+    ></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content
+  [fullscreen]="true"
+  [scrollEvents]="true"
+  (ionScrollEnd)="logScrollEnd()"
+  (ionScrollStart)="logScrollStart()"
+>
   <ion-header color="primary" class="ion-no-border" collapse="condense">
     <ion-toolbar>
       <ion-list-header mode="ios">
@@ -13,27 +30,20 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-searchbar
-    placeholder="Que quieres comer?"
-    inputmode="decimal"
-    animated
-    type="decimal"
-    [(ngModel)]="filterProduct"
-    (ngModelChange)="onSearchChange()"
-    [debounce]="250"
-  ></ion-searchbar>
-
   <ion-list>
+    <ion-list-header *ngIf="md" mode="ios">
+      <ion-label>Listado de Productos</ion-label>
+    </ion-list-header>
     <ion-grid fixed>
       <ion-row *ngFor="let product of products | async">
         <ion-col size="12">
-          <ion-item routerLink="detail/{{ product.id}}" button>
+          <ion-item routerLink="detail/{{ product.id}}" button [detail]="false">
             <ion-thumbnail slot="end">
               <img class="product__img" [src]="product.img" />
             </ion-thumbnail>
             <ion-label>
               <h3>{{ product.name}}</h3>
-              <p>{{ product.price | currency}}</p>
+              <p>{{ product.price | currency: "COP"}}</p>
               <p>
                 {{ product.rate}}
                 <ion-icon color="warning" name="star-outline"></ion-icon>
@@ -46,4 +56,4 @@
   </ion-list>
 </ion-content>
 
-<app-fab-cart></app-fab-cart>
+<app-fab-cart [hidden]="hiddenFab"></app-fab-cart>

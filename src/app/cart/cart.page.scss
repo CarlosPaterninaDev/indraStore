@@ -1,12 +1,4 @@
-.empty {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80%;
-  width: 100vw;
-
-  img {
-    width: 200px;
-  }
+ion-item ion-label {
+  border-left: 2px solid var(--ion-color-primary);
+  padding-left: 10px;
 }

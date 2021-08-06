@@ -1,7 +1,45 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>user</ion-title>
+    <ion-title>Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ng-template #empty>
+    <div class="empty">
+      <img src="/assets/empty.svg" alt="" srcset="" />
+      <p>No hay ordenes creadas</p>
+
+      <ion-chip routerLink="/tabs/products" color="secondary">
+        <ion-icon name="bag-handle"></ion-icon>
+        <ion-label>Llevame a comprar</ion-label>
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-chip>
+    </div>
+  </ng-template>
+
+  <ion-list *ngIf="historyOrder.length; else empty">
+    <ion-list-header mode="ios">
+      <ion-label>Historial de compra</ion-label>
+    </ion-list-header>
+    <ion-grid fixed>
+      <ion-row *ngFor="let product of historyOrder">
+        <ion-col size="12">
+          <ion-item (click)="showHistory(product)" button [detail]="false">
+            <ion-thumbnail
+              *ngFor="let prod of product.products  | slice:0:2"
+              slot="end"
+            >
+              <img class="product__img" [src]="prod.img" />
+            </ion-thumbnail>
+            <ion-label>
+              <h3>No. Orden: {{ product.idOrder}}</h3>
+              <p>Productos comprados {{product.products.length}}</p>
+              <p>Total Compra{{ product.total | currency: "COP"}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>

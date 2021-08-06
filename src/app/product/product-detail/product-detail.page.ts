@@ -46,12 +46,11 @@ export class ProductDetailPage implements OnInit {
   }
 
   async addCart() {
-    this.cartService.productToCart.emit(this.product);
     this.cartService.addProductToCart(this.product);
 
     await this.uiService.presentLoading(ADD_PRODUCTO).then((e) => {
       setTimeout(() => {
-        this.uiService.presentToast(ADD_SUCCESFUL);
+        this.uiService.presentToast(ADD_SUCCESFUL, 'success');
         this.navController.back();
         this.uiService.loading.dismiss();
       }, 1500);

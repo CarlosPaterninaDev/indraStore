@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { LoadingController, ToastController } from '@ionic/angular';
+import {
+  AlertController,
+  LoadingController,
+  ToastController,
+} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +13,8 @@ export class UiService {
 
   constructor(
     private loadingController: LoadingController,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private alertController: AlertController
   ) {}
 
   async presentLoading(
@@ -29,8 +34,8 @@ export class UiService {
 
   async presentToast(
     message: string = 'Toast Bottom',
-    color: string = 'primary',
-    duration = 2000
+    color: string = 'secondary',
+    duration = 1200
   ): Promise<void> {
     const toast = await this.toastController.create({
       color,
@@ -42,5 +47,36 @@ export class UiService {
     });
 
     toast.present();
+  }
+
+  async alertConfirm(header: string, message: string, backdrop = true) {
+    let respuesta = null;
+
+    const alertConfirm = await this.alertController.create({
+      header,
+      message,
+      backdropDismiss: backdrop,
+      mode: 'ios',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => (respuesta = false),
+        },
+        {
+          text: 'Aceptar',
+          handler: () => (respuesta = true),
+        },
+      ],
+    });
+
+    await alertConfirm.present();
+
+    await alertConfirm.onDidDismiss();
+
+    return new Promise((resolve) => {
+      resolve(respuesta);
+    });
   }
 }

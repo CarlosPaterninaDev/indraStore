@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button
+        (click)="closeModal()"
+        mode="md"
+        icon="chevron-back"
+        text=""
+        defaultHref="/tabs/user"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-list-header mode="ios">
+      <ion-label>
+        Order No. {{ productOrder.idOrder }}
+        <p>Fecha de compra: {{ productOrder.idOrder | date: "medium" }}</p>
+        <p>Cantidad de productos {{ productOrder.products.length }}</p>
+        <p>Total compra {{ productOrder.total | currency: "COP" }}</p>
+      </ion-label>
+    </ion-list-header>
+
+    <ion-grid fixed>
+      <ion-list-header mode="ios">
+        <ion-text color="success">
+          <p>Compra realizada:</p>
+        </ion-text>
+      </ion-list-header>
+      <ion-row *ngFor="let product of productOrder.products; let i = index">
+        <ion-col size="12">
+          <ion-list #list>
+            <ion-item button>
+              <ion-thumbnail slot="end">
+                <img class="product__img" [src]="product.img" />
+              </ion-thumbnail>
+              <ion-label>
+                <h2>
+                  {{ product.name }}
+                  <p>cantidad x {{ product.quantity }}</p>
+                </h2>
+                <p>{{ product.price | currency: "COP" }}</p>
+                <h3>Subtotal {{ product.total | currency: "COP" }}</h3>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>

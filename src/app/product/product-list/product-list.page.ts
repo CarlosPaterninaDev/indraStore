@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -9,12 +10,26 @@ import { ProductService } from '../services/product.service';
 export class ProductListPage implements OnInit {
   products = this.productService.getProductsData();
   filterProduct = '';
+  md = false;
+  hiddenFab = true;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private platform: Platform
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.md = this.platform.is('android');
+  }
 
   onSearchChange() {
     console.log(this.filterProduct);
+  }
+
+  logScrollEnd() {
+    this.hiddenFab = true;
+  }
+  logScrollStart() {
+    this.hiddenFab = false;
   }
 }
