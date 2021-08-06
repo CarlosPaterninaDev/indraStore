@@ -11,6 +11,7 @@ export class HomePage {
   @ViewChild(IonSlides) sliceEl: IonSlides;
   offers = this.homeService.getOffersData();
   sponsorship = this.homeService.getSponsorshipData();
+  darkMode = false;
 
   slidesOptions = {
     initialSlide: 0,
@@ -22,9 +23,17 @@ export class HomePage {
     loop: true,
   };
 
-  constructor(private homeService: HomeService) {}
+  constructor(private homeService: HomeService) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    this.darkMode = prefersDark.matches;
+  }
 
   ionViewWillEnter() {
     this.sliceEl.startAutoplay();
+  }
+
+  onChangeDarkMode() {
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle('dark');
   }
 }

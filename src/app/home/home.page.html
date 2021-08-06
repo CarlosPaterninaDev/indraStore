@@ -6,6 +6,16 @@
       </ion-thumbnail>
       <ion-label>IndraStore</ion-label>
     </ion-item>
+
+    <ion-buttons slot="end">
+      <ion-toggle
+        [color]="darkMode ? 'light' : 'primary'"
+        [ngModel]="darkMode"
+        (ngModelChange)="onChangeDarkMode()"
+      ></ion-toggle>
+      <ion-icon *ngIf="!darkMode" name="sunny"></ion-icon>
+      <ion-icon *ngIf="darkMode" name="moon"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

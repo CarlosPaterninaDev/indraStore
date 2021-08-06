@@ -14,15 +14,5 @@
   position: relative;
   height: 100vh;
   border-top-right-radius: 80px 80px;
-  background-color: white;
-}
-
-.text-cart {
-  position: absolute;
-  top: 8px;
-  font-size: 10px;
-}
-
-.icon-cart {
-  font-size: 20px;
+  background-color: var(--ion-card-background);
 }
