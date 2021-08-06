@@ -8,6 +8,7 @@ import { ProductListPageRoutingModule } from './product-list-routing.module';
 
 import { ProductListPage } from './product-list.page';
 import { CartPageModule } from '../../cart/cart.module';
+import { FilterPipe } from '../pipe/filter.pipe';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { CartPageModule } from '../../cart/cart.module';
     ProductListPageRoutingModule,
     CartPageModule,
   ],
-  declarations: [ProductListPage],
+  declarations: [ProductListPage, FilterPipe],
 })
 export class ProductListPageModule {}

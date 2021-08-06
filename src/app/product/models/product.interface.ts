@@ -10,8 +10,6 @@ export interface Product {
 export interface Offer {
   id: number;
   name: string;
-  price: number;
   description: number;
-  offers?: number;
   img: string;
 }

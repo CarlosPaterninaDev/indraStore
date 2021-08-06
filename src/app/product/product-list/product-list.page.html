@@ -35,7 +35,9 @@
       <ion-label>Listado de Productos</ion-label>
     </ion-list-header>
     <ion-grid fixed>
-      <ion-row *ngFor="let product of products | async">
+      <ion-row
+        *ngFor="let product of products | async | filter : filterProduct: 'name'"
+      >
         <ion-col size="12">
           <ion-item routerLink="detail/{{ product.id}}" button [detail]="false">
             <ion-thumbnail slot="end">

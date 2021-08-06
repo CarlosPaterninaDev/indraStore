@@ -19,28 +19,25 @@
   </ion-header>
 
   <ion-slides [options]="slidesOptions" mode="ios" pager="ios">
-    <ion-slide class="ion-margin" *ngFor="let item of [1,1,1,1]">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
-          <ion-card-title>Awesome Title</ion-card-title>
-        </ion-card-header>
-        <ion-card-content> Awesome content </ion-card-content>
-      </ion-card>
+    <ion-slide
+      class="image-slide"
+      [style]=" ( off.img  | domSanitizer) "
+      *ngFor="let off of offers | async"
+    >
     </ion-slide>
   </ion-slides>
 
   <ion-list>
     <ion-list-header mode="ios">
-      <ion-label>Productos Populares</ion-label>
+      <ion-label>Marcas</ion-label>
     </ion-list-header>
-    <ion-item *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1]" lines="none">
+    <ion-item *ngFor="let sponsor of sponsorship | async " lines="none">
       <ion-avatar slot="start">
-        <img />
+        <img class="sponsor__img" [src]="sponsor.img" />
       </ion-avatar>
       <ion-label>
-        <h3>SubTitulo</h3>
-        <p>Parrafo</p>
+        <h3>{{sponsor.name | titlecase}}</h3>
+        <p>{{ sponsor.description}}</p>
       </ion-label>
     </ion-item>
   </ion-list>

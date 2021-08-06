@@ -60,31 +60,27 @@
   "offers": [
     {
       "id": 1,
-      "name": "Producto 1",
-      "price": 1000,
+      "name": "Offers 1",
       "description": "lorem insum",
-      "offers": 0.1
+      "img": "https://www.easypromosapp.com/blog/wp-content/uploads/header_ideas_de_promociones_para_restaurantes.jpg"
     },
     {
       "id": 2,
-      "name": "Producto 2",
-      "price": 2000,
+      "name": "Offers 1",
       "description": "lorem insum",
-      "offers": 0.2
+      "img": "https://www.easypromosapp.com/blog/wp-content/uploads/header_ideas_promociones_mes_patrio.jpg"
     },
     {
       "id": 3,
-      "name": "Producto 3",
-      "price": 3000,
+      "name": "Offers 1",
       "description": "lorem insum",
-      "offers": 0.3
+      "img": "https://www.pandaancha.mx/plds/articulos/9c9b76e3c085d6e942f251d6bd2354cf302771847.png"
     },
     {
       "id": 4,
-      "name": "Producto 4",
-      "price": 4000,
+      "name": "Offers 1",
       "description": "lorem insum",
-      "offers": 0.4
+      "img": "https://s3-sa-east-1.amazonaws.com/api-lac.production/images/discount_images/2021-06-01/a016da8bb378208deb77927f36b7a4d3.png"
     }
   ],
   "categories": [
@@ -105,6 +101,44 @@
     {
       "id": 4,
       "name": "Category 4"
+    }
+  ],
+  "sponsorship": [
+    {
+      "id": 1,
+      "name": "sun",
+      "description": "lorem insum",
+      "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1542501474l/42854557._SX318_.jpg"
+    },
+    {
+      "id": 2,
+      "name": "mc",
+      "description": "lorem insum",
+      "img": "https://wersm.com/wp-content/uploads/2020/03/wersm-mcdonalds-brazil-socia-distancing-fb.jpg"
+    },
+    {
+      "id": 3,
+      "name": "coke",
+      "description": "lorem insum",
+      "img": "https://i.ytimg.com/vi/3y0atO2QE_I/maxresdefault.jpg"
+    },
+    {
+      "id": 4,
+      "name": "sun",
+      "description": "lorem insum",
+      "img": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1542501474l/42854557._SX318_.jpg"
+    },
+    {
+      "id": 5,
+      "name": "mc",
+      "description": "lorem insum",
+      "img": "https://wersm.com/wp-content/uploads/2020/03/wersm-mcdonalds-brazil-socia-distancing-fb.jpg"
+    },
+    {
+      "id": 6,
+      "name": "coke",
+      "description": "lorem insum",
+      "img": "https://i.ytimg.com/vi/3y0atO2QE_I/maxresdefault.jpg"
     }
   ]
 }

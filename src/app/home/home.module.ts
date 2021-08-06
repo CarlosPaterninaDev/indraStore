@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { CartPageModule } from '../cart/cart.module';
+import { DomSanitizerPipe } from './pipe/dom-sanitizer.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { CartPageModule } from '../cart/cart.module';
     HomePageRoutingModule,
     CartPageModule,
   ],
-  declarations: [HomePage],
+  declarations: [HomePage, DomSanitizerPipe],
 })
 export class HomePageModule {}
