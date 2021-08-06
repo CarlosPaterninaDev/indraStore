@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-fab-cart',
@@ -17,7 +18,11 @@ import { Component, OnInit } from '@angular/core';
 export class FabCartComponent implements OnInit {
   cart = 0;
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cartService.productToCart.subscribe((e) => {
+      this.cart += 1;
+    });
+  }
 }

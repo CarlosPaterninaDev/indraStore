@@ -8,11 +8,11 @@ const routes: Routes = [
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
   },
 
-  // {
-  //   path: '**',
-  //   redirectTo: '',
-  //   pathMatch: 'full',
-  // },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

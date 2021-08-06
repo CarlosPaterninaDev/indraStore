@@ -4,50 +4,57 @@
       "id": 1,
       "name": "Waffles",
       "price": 1000,
-      "quantity": 10,
-      "img": "https://images.pexels.com/photos/357573/pexels-photo-357573.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "description": "lorem insum",
+      "img": "https://images.pexels.com/photos/357573/pexels-photo-357573.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "rate": 4.6
     },
     {
       "id": 2,
       "name": "Postre",
       "price": 2000,
-      "quantity": 20,
-      "img": "https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      "description": "lorem insum",
+      "img": "https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "rate": 4.6
     },
     {
       "id": 3,
       "name": "Postre 2",
       "price": 3000,
-      "quantity": 30,
-      "img": "https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "description": "lorem insum",
+      "img": "https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "rate": 4.6
     },
     {
       "id": 4,
       "name": "Ensalada",
       "price": 4000,
-      "quantity": 40,
-      "img": "https://images.pexels.com/photos/3662126/pexels-photo-3662126.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "description": "lorem insum",
+      "img": "https://images.pexels.com/photos/3662126/pexels-photo-3662126.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "rate": 4.6
     },
     {
       "id": 5,
       "name": "Pizza x 2 personas",
       "price": 4000,
-      "quantity": 40,
-      "img": "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "description": "lorem insum",
+      "img": "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "rate": 4.6
     },
     {
       "id": 6,
       "name": "Pizza x 2 personas",
       "price": 4000,
-      "quantity": 40,
-      "img": "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "description": "lorem insum",
+      "img": "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "rate": 4.6
     },
     {
       "id": 7,
       "name": "Pizza x 2 personas",
       "price": 4000,
-      "quantity": 40,
-      "img": "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      "description": "lorem insum",
+      "img": "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "rate": 4.6
     }
   ],
   "offers": [
@@ -55,28 +62,28 @@
       "id": 1,
       "name": "Producto 1",
       "price": 1000,
-      "quantity": 10,
+      "description": "lorem insum",
       "offers": 0.1
     },
     {
       "id": 2,
       "name": "Producto 2",
       "price": 2000,
-      "quantity": 20,
+      "description": "lorem insum",
       "offers": 0.2
     },
     {
       "id": 3,
       "name": "Producto 3",
       "price": 3000,
-      "quantity": 30,
+      "description": "lorem insum",
       "offers": 0.3
     },
     {
       "id": 4,
       "name": "Producto 4",
       "price": 4000,
-      "quantity": 40,
+      "description": "lorem insum",
       "offers": 0.4
     }
   ],
@@ -89,7 +96,7 @@
       "id": 2,
       "name": "Category 2",
       "price": 2000,
-      "quantity": 20
+      "description": "lorem insum"
     },
     {
       "id": 3,

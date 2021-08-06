@@ -34,7 +34,10 @@
             <ion-label>
               <h3>{{ product.name}}</h3>
               <p>{{ product.price | currency}}</p>
-              <p></p>
+              <p>
+                {{ product.rate}}
+                <ion-icon color="warning" name="star-outline"></ion-icon>
+              </p>
             </ion-label>
           </ion-item>
         </ion-col>

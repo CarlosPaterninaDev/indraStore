@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { ProductService } from '../services/product.service';
+
+import { ProductCart } from '../models/product.class';
+import { CartService } from '../../cart/services/cart.service';
+import { NavController } from '@ionic/angular';
+import { UiService } from '../../shared/services/ui.service';
+import { ADD_PRODUCTO, ADD_SUCCESFUL } from 'src/app/constant/ui.message';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,11 +16,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailPage implements OnInit {
   isFavorite = true;
-  product;
+  product: ProductCart;
 
-  constructor() {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private productService: ProductService,
+    private cartService: CartService,
+    private navController: NavController,
+    private uiService: UiService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activatedRoute.params
+      .pipe(switchMap(({ id }) => this.productService.getProductsById(id)))
+      .subscribe((product) => {
+        this.product = new ProductCart(product);
+        console.log(this.product);
+      });
+  }
+
+  onHandleQuantity(quantity: number) {
+    console.log(this.product.quantity);
+    if (this.product.quantity < 0) {
+      this.product.quantity = 0;
+    } else {
+      this.product.quantity = this.product.quantity + quantity;
+      this.product.calculateTotal();
+    }
+  }
+
+  async addCart() {
+    this.cartService.productToCart.emit(this.product);
+    this.cartService.addProductToCart(this.product);
+
+    await this.uiService.presentLoading(ADD_PRODUCTO).then((e) => {
+      setTimeout(() => {
+        this.uiService.presentToast(ADD_SUCCESFUL);
+        this.navController.back();
+        this.uiService.loading.dismiss();
+      }, 1500);
+    });
+  }
 
   toggleFavorite() {}
 

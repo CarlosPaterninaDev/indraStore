@@ -1,10 +1,68 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>cart</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-back-button text="" defaultHref="/tabs/products"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content fullscreen>
+  <ng-template #empty>
+    <div class="empty">
+      <img src="/assets/empty_cart.svg" alt="" srcset="" />
+      <p>No hay productos agregados</p>
+
+      <ion-chip routerLink="/tabs/products" color="secondary">
+        <ion-icon name="bag-handle"></ion-icon>
+        <ion-label>Llevame a comprar</ion-label>
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-chip>
+    </div>
+  </ng-template>
+
+  <ion-list *ngIf="productsCart.length; else empty">
+    <ion-list-header>
+      <ion-label>Carrito de compras</ion-label>
+    </ion-list-header>
+
+    <ion-grid fixed>
+      <ion-list-header>
+        <ion-text color="primary">
+          <p>Productos seleccionado:</p>
+        </ion-text>
+      </ion-list-header>
+      <ion-row *ngFor="let product of productsCart ">
+        <ion-col size="12">
+          <ion-list>
+            <ion-item-sliding>
+              <ion-item button>
+                <ion-thumbnail slot="end">
+                  <img class="product__img" [src]="product.img" />
+                </ion-thumbnail>
+                <ion-label>
+                  <h2>
+                    {{ product.name}}
+                    <p>cantidad x {{product.quantity }}</p>
+                  </h2>
+                  <h3>{{product.price | currency}}</h3>
+                  <p>Subtotal {{ product.total | currency}}</p>
+                </ion-label>
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option (click)="removeProduct(product)">
+                  <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="productsCart.length" translucent>
+  <ion-toolbar color="primary">
+    <ion-title>Pagar</ion-title>
+  </ion-toolbar>
+</ion-footer>

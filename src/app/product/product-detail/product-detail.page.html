@@ -1,4 +1,4 @@
-<ion-content class="speaker-detail">
+<div class="product-container">
   <ion-header class="ion-no-border">
     <ion-toolbar color="primary">
       <ion-buttons slot="start">
@@ -23,13 +23,61 @@
     </ion-toolbar>
   </ion-header>
 
-  <div class="speaker-background">
-    <img [src]="product?.pic" [alt]="product?.name" />
-    <h2>{{product?.name}}</h2>
-  </div>
+  <div class="ion-padding product__detail">
+    <img class="product__img" [src]="product?.img" [alt]="product?.name" />
 
-  <div class="ion-padding speaker-detail">
-    <p>{{product?.about}} Say hello on social media!</p>
-    <hr />
+    <div class="ion-padding">
+      <h2>{{product?.name}}</h2>
+      <p>{{product?.description}}</p>
+
+      <ion-text color="secondary">
+        <p>{{product?.price | currency}}</p>
+      </ion-text>
+
+      <ion-item lines="full">
+        <ion-button
+          (click)="onHandleQuantity(+1)"
+          slot="icon-only"
+          slot="start"
+        >
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+        <ion-input
+          type="number"
+          readonly
+          [value]="product?.quantity"
+          placeholder="cantidad"
+        ></ion-input>
+        <ion-button
+          [disabled]="product?.quantity === 0"
+          (click)="onHandleQuantity(-1)"
+          slot="icon-only"
+          slot="start"
+        >
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-input
+          type="text"
+          readonly
+          [value]="product?.total | currency"
+          placeholder="total compra $$"
+        ></ion-input>
+      </ion-item>
+    </div>
   </div>
-</ion-content>
+</div>
+
+<ion-fab
+  (click)="addCart()"
+  *ngIf="product?.quantity"
+  class="animate__animated animate__pulse animate__infinite"
+  vertical="bottom"
+  horizontal="end"
+>
+  <ion-fab-button>
+    <ion-icon class="icon-cart" name="cart"></ion-icon>
+    <ion-text class="text-cart" color="light"> add to</ion-text>
+  </ion-fab-button>
+</ion-fab>

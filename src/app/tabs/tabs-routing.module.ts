@@ -38,11 +38,11 @@ const routes: Routes = [
           import('../user/user.module').then((m) => m.UserPageModule),
       },
 
-      // {
-      //   path: '**',
-      //   redirectTo: 'home',
-      //   pathMatch: 'full',
-      // },
+      {
+        path: '**',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
     ],
   },
   {
@@ -50,11 +50,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('../cart/cart.module').then((m) => m.CartPageModule),
   },
-  // {
-  //   path: '**',
-  //   redirectTo: 'tabs',
-  //   pathMatch: 'full',
-  // },
+  {
+    path: '**',
+    redirectTo: 'tabs',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
