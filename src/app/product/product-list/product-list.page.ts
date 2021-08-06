@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.page.scss'],
 })
 export class ProductListPage implements OnInit {
+  products = this.productService.getProductsData();
+  filterProduct = '';
 
-  constructor() { }
+  constructor(private productService: ProductService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onSearchChange() {
+    console.log(this.filterProduct);
   }
-
 }

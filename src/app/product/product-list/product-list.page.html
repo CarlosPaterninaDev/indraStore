@@ -1,9 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>productList</ion-title>
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Listado de Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header color="primary" class="ion-no-border" collapse="condense">
+    <ion-toolbar>
+      <ion-list-header mode="ios">
+        <ion-label>Listado de Productos</ion-label>
+      </ion-list-header>
+    </ion-toolbar>
+  </ion-header>
 
+  <ion-searchbar
+    placeholder="Que quieres comer?"
+    inputmode="decimal"
+    animated
+    type="decimal"
+    [(ngModel)]="filterProduct"
+    (ngModelChange)="onSearchChange()"
+    [debounce]="250"
+  ></ion-searchbar>
+
+  <ion-list>
+    <ion-grid fixed>
+      <ion-row *ngFor="let product of products | async">
+        <ion-col size="12">
+          <ion-item routerLink="detail/{{ product.id}}" button>
+            <ion-thumbnail slot="end">
+              <img class="product__img" [src]="product.img" />
+            </ion-thumbnail>
+            <ion-label>
+              <h3>{{ product.name}}</h3>
+              <p>{{ product.price | currency}}</p>
+              <p></p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
 </ion-content>
+
+<app-fab-cart></app-fab-cart>

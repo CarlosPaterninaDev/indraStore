@@ -1,9 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>productDetail</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="speaker-detail">
+  <ion-header class="ion-no-border">
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/products"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="toggleFavorite()">
+          <ion-icon
+            slot="icon-only"
+            ios="star-outline"
+            md="star-sharp"
+          ></ion-icon>
+        </ion-button>
+        <ion-button (click)="socialShare()">
+          <ion-icon
+            slot="icon-only"
+            ios="share-social-outline"
+            md="share-social-sharp"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>
+  <div class="speaker-background">
+    <img [src]="product?.pic" [alt]="product?.name" />
+    <h2>{{product?.name}}</h2>
+  </div>
 
+  <div class="ion-padding speaker-detail">
+    <p>{{product?.about}} Say hello on social media!</p>
+    <hr />
+  </div>
 </ion-content>

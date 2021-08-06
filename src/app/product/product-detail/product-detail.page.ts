@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-detail.page.scss'],
 })
 export class ProductDetailPage implements OnInit {
+  isFavorite = true;
+  product;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  toggleFavorite() {}
+
+  socialShare() {}
 }
