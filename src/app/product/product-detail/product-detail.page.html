@@ -31,12 +31,17 @@
     <img class="product__img" [src]="product?.img" [alt]="product?.name" />
 
     <div class="ion-padding">
-      <h2>{{product?.name}}</h2>
-      <p>{{product?.description}}</p>
+      <ion-label>
+        <ion-list-header mode="ios">
+          <ion-label>{{product?.name}}</ion-label>
+        </ion-list-header>
 
-      <ion-text color="secondary">
-        <p>{{product?.price | currency: "COP"}}</p>
-      </ion-text>
+        <p>{{product?.description}}</p>
+
+        <ion-text color="secondary">
+          <p>{{product?.price | currency: "COP"}}</p>
+        </ion-text>
+      </ion-label>
 
       <ion-item lines="full">
         <ion-button
