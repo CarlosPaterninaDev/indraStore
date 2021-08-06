@@ -31,12 +31,10 @@ export class ProductDetailPage implements OnInit {
       .pipe(switchMap(({ id }) => this.productService.getProductsById(id)))
       .subscribe((product) => {
         this.product = new ProductCart(product);
-        console.log(this.product);
       });
   }
 
   onHandleQuantity(quantity: number) {
-    console.log(this.product.quantity);
     if (this.product.quantity < 0) {
       this.product.quantity = 0;
     } else {

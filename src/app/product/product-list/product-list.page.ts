@@ -22,10 +22,6 @@ export class ProductListPage implements OnInit {
     this.md = this.platform.is('android');
   }
 
-  onSearchChange() {
-    console.log(this.filterProduct);
-  }
-
   logScrollEnd() {
     this.hiddenFab = true;
   }

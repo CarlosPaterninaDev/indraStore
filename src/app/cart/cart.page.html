@@ -72,12 +72,19 @@
 
 <ion-footer mode="ios" *ngIf="productsCart.length" translucent>
   <ion-toolbar color="light">
-    <ion-title *ngIf="showButtonPay"
+    <ion-title class="footer-text" *ngIf="showButtonPay"
       >Total a pagar {{order?.total | currency: "COP"}}</ion-title
     >
-    <ion-title *ngIf="!showButtonPay"> No. de Orden {{ noOrder }}</ion-title>
+    <ion-title class="footer-text" *ngIf="!showButtonPay">
+      No. de Orden {{ noOrder }}</ion-title
+    >
   </ion-toolbar>
-  <ion-toolbar *ngIf="showButtonPay" (click)="pay()" color="primary">
+  <ion-toolbar
+    class="footer-text"
+    *ngIf="showButtonPay"
+    (click)="pay()"
+    color="primary"
+  >
     <ion-title>Pagar <ion-icon name="cash-outline"></ion-icon></ion-title>
   </ion-toolbar>
 </ion-footer>

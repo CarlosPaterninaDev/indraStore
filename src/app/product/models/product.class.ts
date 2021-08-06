@@ -15,6 +15,7 @@ export class ProductCart {
     this.price = product.price;
     this.img = product.img;
     this.quantity = 0;
+    this.description = product.description;
   }
 
   calculateTotal() {

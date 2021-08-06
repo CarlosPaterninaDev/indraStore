@@ -37,7 +37,6 @@ export class FabCartComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    console.log('fab');
     this.cartService.productToCart.subscribe((e) => {
       this.cartCounter = this.cartService.cart.length;
     });

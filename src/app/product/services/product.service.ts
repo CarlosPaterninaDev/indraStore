@@ -22,13 +22,9 @@ export class ProductService {
   getProductsById(idProduct) {
     return this.http.get<ResponseDB>('assets/database/productDB.json').pipe(
       map((resp) => {
-        console.log(idProduct);
-        console.log(resp.products);
         const product = resp.products.filter(
           (product) => product.id == idProduct
         )[0];
-
-        console.log(product);
 
         return { ...product };
       })

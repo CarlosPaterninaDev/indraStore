@@ -31,7 +31,6 @@ export class CartPage {
   ionViewDidEnter() {
     this.order = new CartOrder(this.productsCart);
     this.order.calculateTotal();
-    console.log(this.order);
   }
 
   async removeProduct(index: number) {
